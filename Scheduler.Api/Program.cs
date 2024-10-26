@@ -26,10 +26,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-app.UseHangfireDashboard(options: new DashboardOptions
+app.UseHangfireDashboard("/hangfire-dashboard", options: new DashboardOptions
 {
     DashboardTitle = "Scheduler Background Jobs",
-    DisplayStorageConnectionString = false
+    DisplayStorageConnectionString = false,
+    AppPath = null
 });
 
 app.MapJobShedulerEndpoints();
